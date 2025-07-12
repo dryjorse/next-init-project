@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "./typography.css";
+
+@theme {
+  --spacing-5: 5px;
+  --spacing-10: 10px;
+  --spacing-20: 20px;
+  --spacing-30: 30px;
+  --spacing-40: 40px;
+  --spacing-50: 50px;
+  --spacing-60: 60px;
+  --spacing-70: 70px;
+  --spacing-80: 80px;
+  --spacing-90: 90px;
+  --spacing-100: 100px;
+
+  --radius-circle: 50%;
+
+  --font-commissioner: "";
+
+  --color-primary: "";
+
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-24: 24px;
+}
+
+@utility grid-auto-cols-* {
+  grid-template-columns: repeat(--value(integer), minmax(0, auto));
+}
+
+@utility animate-def {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+@utility clickable-text {
+  @apply animate-def hover:text-primary;
+}
+
+@layer base {
+  * {
+    @apply m-0 box-border p-0;
+  }
+
+  body {
+    @apply text-16 typography-16 text-black;
+  }
+
+  input {
+    @apply outline-none;
+  }
+
+  button,
+  label {
+    @apply cursor-pointer;
+  }
+
+  button:disabled {
+    @apply cursor-not-allowed;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-[8px];
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-[4px] w-[8px];
+  }
+
+  .scroll-small::-webkit-scrollbar {
+    @apply h-[4px] w-[4px];
+  }
+
+  .scroll-none::-webkit-scrollbar {
+    @apply h-0 w-0;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-[1320px] px-20;
+  }
+}
